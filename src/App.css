@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.blank{
+  color: #282c34;
+}
+
+.container{
+  color: #282c34;
+}
