@@ -1,3 +1,20 @@
 .black{
 color: black;
 }
+
+
+.font{
+    font-size: x-large;
+    font-weight: bold;
+    
+}
+
+.image-Size{
+    width: fit-content;
+    height: fit-content;
+}
+
+.stylish{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  
+}
