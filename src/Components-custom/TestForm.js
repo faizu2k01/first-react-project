@@ -12,14 +12,17 @@ export default function TestForm(props) {
   const lowerCase = ()=>{
    let str = text;
     setText(str.toLowerCase());
+    // props.showAlert("Converted to LowerCase","Success");
   }
   const method2 = ()=>{
     let str = text;
     setText(str.toUpperCase());
+    //  props.showAlert("Converted to UpperCase","Success");
   }
 
   const methodClear =()=>{
     setText('');
+      // props.showAlert("Editor cleared","Success");
   }
 
   
@@ -27,6 +30,7 @@ export default function TestForm(props) {
       let str = text;
       
       setText(str);
+      // props.showAlert("Style Changes","Success");
 
   }
 
@@ -39,7 +43,8 @@ export default function TestForm(props) {
         str2 = str2+" ";
     }
 
-    setText(str2);
+     setText(str2);
+    //  props.showAlert("Text revesed","Success");
    }else{
     setText(text);
    }
@@ -51,6 +56,8 @@ export default function TestForm(props) {
       fontFamily:"'Courier New', Courier, monospace",
       fontSize:'10px'
     });
+
+    
   }else{
     setTextStyle({
       fontFamily:"'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif'",
@@ -59,6 +66,8 @@ export default function TestForm(props) {
   }
   
   }
+
+  
 
   const [text,setText] = useState("");
   const [stylishText,setTextStyle] = useState({
@@ -70,7 +79,7 @@ export default function TestForm(props) {
         <div className="container">
           <div className="mb-3">
             
-            <label htmlFor="myBox" className="form-label font">
+              <label htmlFor="myBox" className={`form-label font text-${props.modeOne}`}>
               {props.main}
               
             </label>
@@ -78,32 +87,33 @@ export default function TestForm(props) {
               style={stylishText}
               className="form-control"
               id="myBox"
-              rows="6"
+              rows="2"
               onChange={method1}
               value={text}
+
             ></textarea>
             
           </div>
 
-          <button className="btn btn-info mx-1" onClick={method2}>
+          <button className={`btn btn-info mx-1 text-${props.modeOne}`} onClick={method2} >
             Convert to Uppercase
           </button>
-          <button className="btn btn-info mx-1" onClick={lowerCase}>
+          <button className={`btn btn-info mx-1 text-${props.modeOne}`} onClick={lowerCase}>
             Convert to LowerCase
           </button>
-          <button className="btn btn-info mx-1" onClick={methodClear}>Clear Text</button>
+          <button className={`btn btn-info mx-1 text-${props.modeOne}`} onClick={methodClear}>Clear Text</button>
 
-          <button className="btn btn-info mx-1" onClick={reverseStr}>Reverse the Text</button>
+          <button className={`btn btn-info mx-1 text-${props.modeOne}`} onClick={reverseStr}>Reverse the Text</button>
 
-          <button className="btn btn-info mx-1" onClick={setFontStyle}>Change font style</button>
+          <button className={`btn btn-info mx-1 text-${props.modeOne}`} onClick={setFontStyle}>Change font style</button>
         </div>
-        <div className="container my-2">
-          <h2>Your text summary:</h2>
-          <p>{text.split(" ").length}:Words</p>
-          <p>{text.length}:Char</p>
+        <div className={`container my-2 text-${props.modeOne}`}>
+          <h2 className={`text-${props.modeOne}`}>Your text summary:</h2>
+          <p className={`text-${props.modeOne}`}>{text.split(/[ ]+/).length-1}:Words</p>
+          <p className={`text-${props.modeOne}`}>{text.length}:Char</p>
           <p>{0.08 * text.split(" ").length}:Minutes taken to read</p>
-          <h2>Preview:</h2>
-          <p>{text}</p>
+          <h2 className={`text-${props.modeOne}`}>Preview:</h2>
+          <p className={`text-${props.modeOne}`}>{text.length > 0?text:"Enter something to preview it here."}</p>
         </div>
       </>
     );
