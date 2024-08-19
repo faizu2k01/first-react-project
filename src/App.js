@@ -4,7 +4,7 @@ import Alert from "./Components-custom/Alert";
 import NavBar from "./Components-custom/NavBar";
 import About from "./Components-custom/About";
 import TestForm from "./Components-custom/TestForm";
-import Error from "./Components-custom/Error";
+
 import { BrowserRouter,Routes, Route, Link } from "react-router-dom";
 import ErrorPage from "./Components-custom/Error";
 
@@ -65,16 +65,16 @@ function App() {
           <Routes>
             <Route exact path="/about" element={<About />} errorElement={<ErrorPage/>}></Route>
             <Route
-             exact path="/"
-              element={
+             exact path="/" 
+               element={ 
                 <TestForm
                   heading="Enter text to analyze"
                   mode={mode}
                   showAlart={showAlart}
                 />
               }
-              errorElement={<ErrorPage/>}
-            ></Route>
+               errorElement={<ErrorPage/>}
+             ></Route>
           </Routes>
         </div>
       </BrowserRouter>
